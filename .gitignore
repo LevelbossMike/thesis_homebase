@@ -63,5 +63,5 @@ vagrants/*
 .rbenv-version
 Gemfile.lock
 Berksfile.lock
-cookbooks/*
+#cookbooks/*
 config/Berksfile.conf

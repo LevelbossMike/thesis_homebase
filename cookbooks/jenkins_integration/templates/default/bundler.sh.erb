@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# Install all dependencies via bundler.
+#
+if [ ! -f Gemfile.lock ]; then
+  echo "Installing bundle:"
+  time bundle install --path vendor --no-color
+else
+  echo "Updating bundle:"
+  time bundle update --no-color
+fi
