@@ -1,0 +1,142 @@
+cassandra      	:: default                 	| 
+cassandra      	:: add_apt_repo            	| new
+cassandra      	:: install_from_git        	| 
+cassandra      	:: install_from_package    	| 
+cassandra      	:: install_from_release    	| 
+cassandra      	:: config_from_data_bag       	| autoconf
+cassandra      	:: client                  	| 
+cassandra      	:: server                  	| 
+cassandra      	:: authentication          	| not include_recipe'd -- added to role
+cassandra      	:: bintools                	| 
+cassandra      	:: ec2snitch               	| 
+cassandra      	:: jna_support             	| 
+cassandra      	:: mx4j                    	| 
+cassandra      	:: iptables                	| 
+cassandra      	:: ruby_client             	| 
+cassandra      	:: config_files            	| new
+
+elasticsearch  	:: default                 	| 
+elasticsearch  	:: install_from_git        	| 
+elasticsearch  	:: install_from_release    	| 
+elasticsearch  	:: plugins                 	| install_plugins
+elasticsearch  	:: server                  	| 
+elasticsearch  	:: client                  	| 
+elasticsearch  	:: load_balancer           	| 
+elasticsearch  	:: config_files               	| config
+
+flume          	:: default                 	| 
+flume          	:: master                  	| 
+flume          	:: agent                   	| node
+flume          	:: plugin-hbase_sink       	| hbase_sink_plugin
+flume          	:: plugin-jruby            	| jruby_plugin     
+flume          	:: test_flow               	| 
+flume          	:: test_s3_source          	| 
+flume          	:: config_files              	| config
+
+ganglia        	:: agent                   	| 
+ganglia        	:: default                 	| 
+ganglia        	:: server                  	| 
+ganglia        	:: config_files            	| new
+
+graphite       	:: default                 	| 
+graphite       	:: carbon                  	| 
+graphite       	:: ganglia                 	| 
+graphite       	:: dashboard                  	| web
+graphite       	:: whisper                 	| 
+
+hadoop_cluster 	:: default                 	| 
+hadoop_cluster 	:: add_cloudera_repo       	| 
+hadoop_cluster 	:: datanode                	| 
+hadoop_cluster 	:: doc                     	| 
+hadoop_cluster 	:: hdfs_fuse               	| 
+hadoop_cluster 	:: jobtracker              	| 
+hadoop_cluster 	:: namenode                	| 
+hadoop_cluster 	:: secondarynn             	| 
+hadoop_cluster 	:: tasktracker             	| 
+hadoop_cluster 	:: wait_on_hdfs_safemode     	| 
+hadoop_cluster 	:: fake_topology           	| 
+hadoop_cluster 	:: minidash                	| 
+hadoop_cluster 	:: config_files            	| cluster_conf
+
+hbase          	:: default                 	| 
+hbase          	:: master                  	| 
+hbase          	:: minidash                	| 
+hbase          	:: regionserver            	| 
+hbase          	:: stargate                	| 
+hbase          	:: thrift                  	| 
+hbase          	:: backup_tables           	| 
+hbase          	:: config_files              	| config
+
+jenkins        	:: default                 	| 
+jenkins        	:: server                  	| 
+jenkins        	:: user_key                	| 
+jenkins        	:: node_ssh                	| 
+jenkins        	:: osx_worker              	| 
+jenkins        	:: build_from_github       	| 
+jenkins        	:: build_ruby_rspec        	|
+jenkins        	:: auth_github_oauth       	| 
+jenkins        	:: plugins                 	| 
+#
+jenkins        	:: add_apt_repo            	| 
+jenkins        	:: iptables                	| 
+jenkins        	:: node_jnlp               	| 
+jenkins        	:: node_windows            	| 
+jenkins        	:: proxy_apache2           	| 
+jenkins        	:: proxy_nginx             	| 
+
+minidash       	:: default                 	| 
+minidash       	:: server                  	| 
+
+mongodb        	:: default                 	| 
+mongodb        	:: apt                     	| add_apt_repo
+mongodb        	:: install_from_release       	| source
+mongodb        	:: backup                  	| 
+mongodb        	:: config_server           	| fixme
+mongodb        	:: mongos                  	| fixme
+mongodb        	:: server                  	| 
+
+nfs            	:: client                  	| 
+nfs            	:: default                 	| 
+nfs            	:: server                  	| 
+
+redis          	:: default                 	| 
+redis          	:: install_from_package    	| 
+redis          	:: install_from_release    	| 
+redis          	:: client                  	| 
+redis          	:: server                  	| 
+
+resque         	:: default                 	| 
+resque         	:: dedicated_redis         	| 
+resque         	:: dashboard               	| 
+
+route53        	:: default                 	| 
+route53        	:: set_hostname                	| ec2
+
+statsd         	:: default                 	| 
+statsd         	:: server                  	| 
+
+volumes        	:: default                 	| 
+volumes        	:: build_raid              	| 
+volumes        	:: format                  	| 
+volumes        	:: mount                   	| 
+volumes        	:: resize                  	| 
+volumes_ebs    	:: default                 	| 
+volumes_ebs    	:: attach_ebs              	| 
+
+zabbix         	:: agent                   	| 
+zabbix         	:: agent_prebuild          	| 
+zabbix         	:: agent_source            	| 
+zabbix         	:: database                	| 
+zabbix         	:: database_mysql          	| 
+zabbix         	:: default                 	| 
+zabbix         	:: firewall                	| 
+zabbix         	:: server                  	| 
+zabbix         	:: server_source           	| 
+zabbix         	:: web                     	| 
+zabbix         	:: web_apache              	| 
+zabbix         	:: web_nginx               	| 
+
+zookeeper      	:: default                 	| 
+zookeeper      	:: client                  	| 
+zookeeper      	:: server                  	| 
+zookeeper      	:: config_files            	| 
